@@ -445,6 +445,8 @@ REPLACE INTO npc_trainer VALUES (995083,2567,0,0,0,1,0); -- thrown
 REPLACE INTO npc_trainer VALUES (995083,201,0,0,0,1,0); -- one hand swords
 REPLACE INTO npc_trainer VALUES (995083,202,0,0,0,1,0); -- two hand swords
 REPLACE INTO npc_trainer VALUES (995083,15590,0,0,0,1,0); -- fists
+REPLACE INTO npc_trainer VALUES (995083,1180,0,0,0,1,0); -- daggers
+REPLACE INTO npc_trainer VALUES (995083,5011,0,0,0,1,0); -- crossbows
 
 REPLACE INTO npc_trainer VALUES (995081, 18248,0,356,225,35,0); -- fishing
 REPLACE INTO npc_trainer VALUES (995080, 10846,0,129,225,35,0); -- first aid
