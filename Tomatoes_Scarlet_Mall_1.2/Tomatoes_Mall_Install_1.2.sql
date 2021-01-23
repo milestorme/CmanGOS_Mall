@@ -126,6 +126,7 @@ VALUES
 (995087, "Demon Trainer", 70,70,25219,35,7,131,4864,1),
 (995000, "Mount Vendor", 70,70,471,35,7,4224,768,1),
 (995085, "Enchants", 70,70,197,35,7,4224,768,1),
+(996000, "Weapon Oils and Stones", 70,70,128,35,7,4224,768,1),
 
 (995088, "Innkeeper", 70,70,25219,35,7,65536,768,1),
 (995090, "Bank", 70,70,24013,35,7,131072,768,1),
@@ -136,7 +137,7 @@ VALUES
 (995096, "Meta Gems", 70,70,106,35,7,4224,768,1),
 (995097, "Bandages", 70,70,96,35,7,4224,768,1),
 (995099, "Off-Hands", 70,70,197,35,7,4224,768,1),
-(995098, "Scrolls", 70,70,19957,35,7,4224,768,1),
+(995098, "Scrolls and Drums", 70,70,19957,35,7,4224,768,1),
 (995199, "Wands", 70,70,19957,35,7,4224,768,1);
 
 REPLACE INTO creature_template (entry, NAME, subname, minlevel, maxlevel, modelid1, faction, creaturetype, npcflags, unitflags, unitclass)
@@ -246,7 +247,7 @@ REPLACE INTO npc_vendor (entry, item)
 REPLACE INTO npc_vendor (entry, item)
 (SELECT 995068, entry FROM item_template WHERE class =0 AND subclass=5 AND itemlevel >= 70); -- food
 REPLACE INTO npc_vendor (entry, item)
-(SELECT 995069, entry FROM item_template WHERE entry IN (22840,22835,22834,32068,22831,32067,22833,22827,28104,22825,28103,22861,22851,22853,22866,22854,33208,22850,22849,22839,22838,22837,22832,22829)); -- potions
+(SELECT 995069, entry FROM item_template WHERE entry IN (22840,22835,22834,32068,22831,32067,22833,22827,28104,22825,28103,22861,22851,22853,22866,22854,33208,22850,22849,22839,22838,22837,22832,22829,21151,22105)); -- potions
 REPLACE INTO npc_vendor (entry, item)
 (SELECT 995089, entry FROM item_template WHERE class =0 AND subclass=8 AND AllowableClass=8 AND RequiredLevel >= 60); -- poisons
 REPLACE INTO npc_vendor (entry, item)
@@ -254,13 +255,15 @@ REPLACE INTO npc_vendor (entry, item)
 REPLACE INTO npc_vendor (entry, item)
 (SELECT 995097, entry FROM item_template WHERE entry IN (21990,21991,19440)); -- bandages
 REPLACE INTO npc_vendor (entry, item)
-(SELECT 995098, entry FROM item_template WHERE (entry BETWEEN 10305 AND 10310)); -- Scrolls
+(SELECT 995098, entry FROM item_template WHERE (entry BETWEEN 10305 AND 10310) or (entry IN(29529,29532,29531,29530,29528))); -- Scrolls and drums
 REPLACE INTO npc_vendor (entry, item)
 (SELECT 995067, entry FROM item_template WHERE (entry BETWEEN 17019 AND 17021) OR (entry BETWEEN 17026 AND 17038) OR (entry IN (17056, 17057, 17058, 21177, 6265))); -- reagents
 REPLACE INTO npc_vendor (entry, item)
-(SELECT 995000, entry FROM item_template WHERE entry IN (33977,37676,30480,33809,13335,19872,19902,35226)); -- mounts
+(SELECT 995000, entry FROM item_template WHERE entry IN (33977,37676,30480,33809,13335,19872,19902,35226,33182)); -- mounts
 REPLACE INTO npc_vendor (entry, item)
-(SELECT 995085, entry FROM item_template WHERE (entry BETWEEN 35396 AND 35462) AND (class !=4)); -- enchants
+(SELECT 995085, entry FROM item_template WHERE (entry BETWEEN 35396 AND 35462) OR (entry IN(29190,30846,29192,29191,29193,29186,29536,29535,24274,24276)) AND (class !=4)); -- enchants
+REPLACE INTO npc_vendor (entry, item)
+(SELECT 996000, entry FROM item_template WHERE (entry IN(34538,34539,22521,22522,20748,20749,23529,28421,18262))); -- weapon oils and stones
 
 
 REPLACE INTO npc_vendor (entry, item)
@@ -659,7 +662,6 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `modelid`, `equipment
 REPLACE INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES('140473','19915','0','1','0','0','1575.09','-5608.64','114.169','1.05475','120','0','0','1','0','0','0');
 REPLACE INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES('140474','995000','0','1','0','0','1563.57','-5596.65','111.17','2.74','120','0','0','1','0','0','0');
 REPLACE INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES('140471','995086','0','1','0','0','1562.84','-5593.67','111.17','3.36','120','0','0','1','0','0','0');
-
 REPLACE INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES('140478','20269','0','1','0','1429','1602.42','-5526.96','111.167','1.11702','120','0','0','6500','0','0','0');
 REPLACE INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES('140480','20271','0','1','0','5090','1620.91','-5530.71','111.167','2.80328','120','0','0','6400','0','0','0');
 REPLACE INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES('140482','20272','0','1','0','5507','1615.01','-5533.53','111.168','1.15081','120','0','0','7400','0','0','0');
@@ -677,6 +679,7 @@ REPLACE INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `modelid`, `equipment
 REPLACE INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES('140533','995107','0','1','0','0','1601.59','-5531.89','111.172','4.35054','120','0','0','1','0','0','0');
 REPLACE INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES('140534','995108','0','1','0','0','1611.64','-5537.19','111.172','4.24911','120','0','0','1','0','0','0');
 REPLACE INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES('140538','995109','0','1','0','0','1589.51','-5555.26','111.172','1.01863','120','0','0','1','0','0','0');
+REPLACE INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES('140540','996000','0','1','0','0','1553.83','-5594.95','111.171','0.396561','120','0','0','1','0','0','0');
 
 -- insert skinning mob spawns
 REPLACE INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmax`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES('140489','995201','0','1','0','0','1672.16','-5500.28','99.9179','5.00271','120','5','0','1','0','0','1');
