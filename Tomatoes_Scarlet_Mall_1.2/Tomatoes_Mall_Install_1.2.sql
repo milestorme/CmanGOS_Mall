@@ -259,7 +259,7 @@ REPLACE INTO npc_vendor (entry, item)
 REPLACE INTO npc_vendor (entry, item)
 (SELECT 995067, entry FROM item_template WHERE (entry BETWEEN 17019 AND 17021) OR (entry BETWEEN 17026 AND 17038) OR (entry IN (17056, 17057, 17058, 21177, 6265))); -- reagents
 REPLACE INTO npc_vendor (entry, item)
-(SELECT 995000, entry FROM item_template WHERE entry IN (33977,37676,30480,33809,13335,19872,19902,35226)); -- mounts
+(SELECT 995000, entry FROM item_template WHERE entry IN (33977,37676,30480,33809,13335,19872,19902,35226,33182)); -- mounts
 REPLACE INTO npc_vendor (entry, item)
 (SELECT 995085, entry FROM item_template WHERE (entry BETWEEN 35396 AND 35462) OR (entry IN(29190,30846,29192,29191,29193,29186,29536,29535,24274,24276)) AND (class !=4)); -- enchants
 REPLACE INTO npc_vendor (entry, item)
