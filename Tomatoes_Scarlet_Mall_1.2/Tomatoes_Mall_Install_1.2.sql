@@ -137,7 +137,7 @@ VALUES
 (995096, "Meta Gems", 70,70,106,35,7,4224,768,1),
 (995097, "Bandages", 70,70,96,35,7,4224,768,1),
 (995099, "Off-Hands", 70,70,197,35,7,4224,768,1),
-(995098, "Scrolls", 70,70,19957,35,7,4224,768,1),
+(995098, "Scrolls and Drums", 70,70,19957,35,7,4224,768,1),
 (995199, "Wands", 70,70,19957,35,7,4224,768,1);
 
 REPLACE INTO creature_template (entry, NAME, subname, minlevel, maxlevel, modelid1, faction, creaturetype, npcflags, unitflags, unitclass)
@@ -255,7 +255,7 @@ REPLACE INTO npc_vendor (entry, item)
 REPLACE INTO npc_vendor (entry, item)
 (SELECT 995097, entry FROM item_template WHERE entry IN (21990,21991,19440)); -- bandages
 REPLACE INTO npc_vendor (entry, item)
-(SELECT 995098, entry FROM item_template WHERE (entry BETWEEN 10305 AND 10310)); -- Scrolls
+(SELECT 995098, entry FROM item_template WHERE (entry BETWEEN 10305 AND 10310) or (entry IN(29529,29532,29531,29530,29528))); -- Scrolls and drums
 REPLACE INTO npc_vendor (entry, item)
 (SELECT 995067, entry FROM item_template WHERE (entry BETWEEN 17019 AND 17021) OR (entry BETWEEN 17026 AND 17038) OR (entry IN (17056, 17057, 17058, 21177, 6265))); -- reagents
 REPLACE INTO npc_vendor (entry, item)
