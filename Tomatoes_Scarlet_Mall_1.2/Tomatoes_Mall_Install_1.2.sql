@@ -247,7 +247,7 @@ REPLACE INTO npc_vendor (entry, item)
 REPLACE INTO npc_vendor (entry, item)
 (SELECT 995068, entry FROM item_template WHERE class =0 AND subclass=5 AND itemlevel >= 70); -- food
 REPLACE INTO npc_vendor (entry, item)
-(SELECT 995069, entry FROM item_template WHERE entry IN (22840,22835,22834,32068,22831,32067,22833,22827,28104,22825,28103,22861,22851,22853,22866,22854,33208,22850,22849,22839,22838,22837,22832,22829,21151)); -- potions
+(SELECT 995069, entry FROM item_template WHERE entry IN (22840,22835,22834,32068,22831,32067,22833,22827,28104,22825,28103,22861,22851,22853,22866,22854,33208,22850,22849,22839,22838,22837,22832,22829,21151,22105)); -- potions
 REPLACE INTO npc_vendor (entry, item)
 (SELECT 995089, entry FROM item_template WHERE class =0 AND subclass=8 AND AllowableClass=8 AND RequiredLevel >= 60); -- poisons
 REPLACE INTO npc_vendor (entry, item)
